@@ -68,3 +68,4 @@ testFold = do
   let bag = insert 1 $ insert 1 $ insert 2 createBag
   let sum = foldlBag (\(_, count) acc -> acc + count) 0 bag
   sum @?= 3
+  
