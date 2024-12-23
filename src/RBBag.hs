@@ -134,8 +134,8 @@ fuse (Node x xv Black t1 t2) (Node y yv Black t3 t4) =
 
 map' :: (Ord b) => (a -> b) -> RBBag a -> RBBag b
 map' _ Leaf = Leaf
-map' f node@Node {element = el, count = cnt, leftChild = left, rightChild = right} = 
-    Node (f el) cnt (color node) (map' f left) (map' f right)
+map' f node@Node {element = el, count = cnt, leftChild = left, rightChild = right} =
+  Node (f el) cnt (color node) (map' f left) (map' f right)
 
 foldl'' :: (Ord a) => ((a, Int) -> b -> b) -> b -> RBBag a -> b
 foldl'' _ acc Leaf = acc
@@ -156,4 +156,4 @@ insertManyHelper el cnt node@Node {element = e, count = c, leftChild = left, rig
   | otherwise = node {count = cnt}
 
 filter' :: (Ord a) => ((a, Int) -> Bool) -> RBBag a -> RBBag a
-filter' p = foldr'' (\(k, c) d -> if p (k, c) then insertMany k c d else d) mempty 
+filter' p = foldr'' (\(k, c) d -> if p (k, c) then insertMany k c d else d) mempty

@@ -46,4 +46,4 @@ foldlBag :: (Ord a) => ((a, Int) -> b -> b) -> b -> Bag a -> b
 foldlBag f acc (Bag tree) = RB.foldl'' f acc tree
 
 foldrBag :: (Ord a) => ((a, Int) -> b -> b) -> b -> Bag a -> b
-foldrBag f acc (Bag tree) = RB.foldr'' f acc tree 
+foldrBag f acc (Bag tree) = RB.foldr'' f acc tree
